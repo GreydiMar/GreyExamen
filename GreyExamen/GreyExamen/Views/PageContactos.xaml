@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GreyExamen.Views.PageContactos">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Codigo"/>
+            <Entry Keyboard="Numeric"
+                   Placeholder="Codigo"
+                   x:Name="id"/>
+
+
+            <Label Text="Nombres"/>
+            <Entry Keyboard="Text"
+                   Placeholder="Nombres"
+                   x:Name="nombre"/>
+
+
+            <Label Text="Apellidos"/>
+            <Entry Keyboard="Text"
+                   Placeholder="Apellidos"
+                   x:Name="apellido"/>
+
+            <Label Text="Latitud"/>
+            <Entry Keyboard="Numeric"
+             Placeholder="Latitud"
+                   x:Name="latitud"/>
+
+            <Label Text="Longitud"/>
+            <Entry Keyboard="Numeric"
+             Placeholder="Longitud"
+                   x:Name="longitud"/>
+
+            <Label Text="Edad"/>
+            <Entry Keyboard="Numeric"
+                   Placeholder="Edad"
+                   x:Name="edad"/>
+
+            <Label Text="Pais" />
+            <RadioButton Content="Honduras(504)" />
+            <RadioButton Content="Costa Rica(506)" />
+            <RadioButton Content="Guatemala(502)" />
+            <RadioButton Content="Nicaragua(505)" />
+            <RadioButton Content="El Salvador(503)"  
+                         x:Name="pais"
+                 IsChecked="true" />
+
+            <Label Text="Nota"/>
+            <Entry Keyboard="Text"
+                   Placeholder="Nota"
+                   x:Name="nota"/>
+
+
+
+            <Button Text="Agregar Contacto"
+                    Font="Large"
+                    BorderWidth="1"
+                    x:Name="btnagregar"
+                    Clicked="btnagregar_Clicked" />
+
+            <Button Text="Eliminar Contacto"
+                    Font="Large"
+                    BorderWidth="1"
+                    x:Name="btneliminar"
+                    Clicked="btneliminar_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
