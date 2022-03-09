@@ -14,7 +14,7 @@
     
     <ContentPage.Content>
         
-            <StackLayout Margin="20,20,20,5" BackgroundColor="DarkBlue">
+            <StackLayout Margin="20,20,20,10" BackgroundColor="DarkBlue">
                
 
 
