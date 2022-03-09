@@ -2,67 +2,107 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreyExamen.Views.PageContactos">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar Contacto"
+                     Clicked="ToolbarItem_Clicked"/>
+
+        <ToolbarItem Text="Eliminar Contacto"
+                     x:Name="ToolDeleContactos"
+                     Clicked="ToolDeleContactos_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Codigo"/>
-            <Entry Keyboard="Numeric"
+        
+            <StackLayout Margin="20,20,20,5" BackgroundColor="DarkBlue">
+                <Label Text="Codigo"/>
+                <Entry Keyboard="Numeric"
                    Placeholder="Codigo"
                    x:Name="id"/>
 
 
-            <Label Text="Nombres"/>
-            <Entry Keyboard="Text"
+                <Label Text="Nombres"/>
+                <Entry Keyboard="Text"
                    Placeholder="Nombres"
                    x:Name="nombre"/>
 
 
-            <Label Text="Apellidos"/>
-            <Entry Keyboard="Text"
+                <Label Text="Apellidos"/>
+                <Entry Keyboard="Text"
                    Placeholder="Apellidos"
                    x:Name="apellido"/>
 
-            <Label Text="Latitud"/>
-            <Entry Keyboard="Numeric"
+                <Label Text="Latitud"/>
+                <Entry Keyboard="Numeric"
              Placeholder="Latitud"
                    x:Name="latitud"/>
 
-            <Label Text="Longitud"/>
-            <Entry Keyboard="Numeric"
+                <Label Text="Longitud"/>
+                <Entry Keyboard="Numeric"
              Placeholder="Longitud"
                    x:Name="longitud"/>
 
-            <Label Text="Edad"/>
-            <Entry Keyboard="Numeric"
+                <Label Text="Edad"/>
+                <Entry Keyboard="Numeric"
                    Placeholder="Edad"
                    x:Name="edad"/>
 
-            <Label Text="Pais" />
-            <RadioButton Content="Honduras(504)" />
-            <RadioButton Content="Costa Rica(506)" />
-            <RadioButton Content="Guatemala(502)" />
-            <RadioButton Content="Nicaragua(505)" />
-            <RadioButton Content="El Salvador(503)"  
+                <Label Text="Pais" />
+                <RadioButton Content="Honduras(504)" />
+                <RadioButton Content="Costa Rica(506)" />
+                <RadioButton Content="Guatemala(502)" />
+                <RadioButton Content="Nicaragua(505)" />
+                <RadioButton Content="El Salvador(503)"  
                          x:Name="pais"
                  IsChecked="true" />
 
-            <Label Text="Nota"/>
-            <Entry Keyboard="Text"
+                <Label Text="Nota"/>
+                <Entry Keyboard="Text"
                    Placeholder="Nota"
                    x:Name="nota"/>
 
-
-
-            <Button Text="Agregar Contacto"
+                <Button Text="Agregar Contacto"
                     Font="Large"
                     BorderWidth="1"
                     x:Name="btnagregar"
-                    Clicked="btnagregar_Clicked" />
+                    Clicked="btnagregar_Clicked"/>
 
-            <Button Text="Eliminar Contacto"
+                <Button Text="Eliminar Contacto"
                     Font="Large"
                     BorderWidth="1"
                     x:Name="btneliminar"
                     Clicked="btneliminar_Clicked" />
+            
+                
+            <CollectionView x:Name="listacontactos"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="listacontactos_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                    ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+
+                            <Label Text="{Binding id}"/>
+
+                            <Label Text="{Binding nombres}"/>
+
+                            <Label Text="{Binding apellidos}"/>
+
+
+                        </StackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+            
         </StackLayout>
-    </ContentPage.Content>
+            
+      </ContentPage.Content>
 </ContentPage>

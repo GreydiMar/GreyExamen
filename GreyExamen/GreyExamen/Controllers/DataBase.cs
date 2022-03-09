@@ -4,7 +4,7 @@ using System.Text;
 using SQLite;
 using GreyExamen.Models;
 using System.Threading.Tasks;
-using GreyExamen.Controllers;
+
 
 namespace GreyExamen.Controllers
 {
@@ -34,8 +34,6 @@ namespace GreyExamen.Controllers
         {
             if (contactos.Id != 0)
             {
-
-
                 return dbconexion.UpdateAsync(contactos);
             }
             else

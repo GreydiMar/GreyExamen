@@ -11,6 +11,8 @@ using GreyExamen.Models;
 using GreyExamen.Controllers;
 using System.IO;
 
+
+
 namespace GreyExamen.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -20,6 +22,25 @@ namespace GreyExamen.Views
         {
             InitializeComponent();
         }
+
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PageContactos());
+        }
+
+        private void listacontactos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection != null)
+            {
+                Models.Contactos contactos = (Models.Contactos)e.CurrentSelection.FirstOrDefault();
+            }
+        }
+
+        private void ToolDeleContactos_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
         protected async override void OnAppearing()
         {
             base.OnAppearing();
@@ -49,18 +70,17 @@ namespace GreyExamen.Views
                     }
                 }
             }
+
             catch (FeatureNotSupportedException fnsEx)
             {
                 fnsEx.ToString();
-
             }
+
+                listacontactos.ItemsSource = await App.InitDB.ObtenerListaContactos();
         }
 
-
-
-        private void btnagregar_Clicked(object sender, EventArgs e, object Contactos)
+        private void btnagregar_Clicked(object sender, EventArgs e)
         {
-
 
             var contactos = new Contactos()
             {
@@ -73,11 +93,28 @@ namespace GreyExamen.Views
                 Nota = nota.Text,
             };
 
-
-
-
-
-            _ = App.InitDB.AddContactos(contactos);
+            App.InitDB.AddContactos(contactos);
         }
+
+        private void btneliminar_Clicked(object sender, EventArgs e)
+        {
+            var contactos = new Contactos()
+            {
+                Nombres = nombre.Text,
+                Apellidos = apellido.Text,
+                Longitud = Convert.ToDouble(longitud.Text),
+                Latitud = Convert.ToDouble(latitud.Text),
+                Edad = (int)Convert.ToDouble(edad.Text),
+                Pais = (string)pais.Value,
+                Nota = nota.Text,
+            };
+
+
+            App.InitDB.DelContactos(contactos);
+        }
+
+
+
+
     }
 }
