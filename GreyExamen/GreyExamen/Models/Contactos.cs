@@ -11,10 +11,10 @@ namespace GreyExamen.Models
         public int Id { get; set; }
 
         [MaxLength(60)]
-        public string Nombres { get; set; }
+        public string Nombre { get; set; }
 
         [MaxLength(60)]
-        public string Apellidos { get; set; }
+        public int Telefono { get; set; }
 
         [MaxLength(70)]
         public int Edad { get; set; }

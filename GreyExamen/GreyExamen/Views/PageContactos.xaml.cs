@@ -81,11 +81,10 @@ namespace GreyExamen.Views
 
         private void btnagregar_Clicked(object sender, EventArgs e)
         {
-
             var contactos = new Contactos()
             {
-                Nombres = nombre.Text,
-                Apellidos = apellido.Text,
+                Nombre = nombre.Text,
+                Telefono = (int)Convert.ToDouble(telefono.Text),
                 Longitud = Convert.ToDouble(longitud.Text),
                 Latitud = Convert.ToDouble(latitud.Text),
                 Edad = (int)Convert.ToDouble(edad.Text),
@@ -100,8 +99,8 @@ namespace GreyExamen.Views
         {
             var contactos = new Contactos()
             {
-                Nombres = nombre.Text,
-                Apellidos = apellido.Text,
+                Nombre = nombre.Text,
+                Telefono = (int)Convert.ToDouble(telefono.Text),
                 Longitud = Convert.ToDouble(longitud.Text),
                 Latitud = Convert.ToDouble(latitud.Text),
                 Edad = (int)Convert.ToDouble(edad.Text),

@@ -15,22 +15,19 @@
     <ContentPage.Content>
         
             <StackLayout Margin="20,20,20,5" BackgroundColor="DarkBlue">
-                <Label Text="Codigo"/>
-                <Entry Keyboard="Numeric"
-                   Placeholder="Codigo"
-                   x:Name="id"/>
+               
 
 
-                <Label Text="Nombres"/>
+                <Label Text="Nombre"/>
                 <Entry Keyboard="Text"
-                   Placeholder="Nombres"
+                   Placeholder="Nombre"
                    x:Name="nombre"/>
 
 
-                <Label Text="Apellidos"/>
-                <Entry Keyboard="Text"
-                   Placeholder="Apellidos"
-                   x:Name="apellido"/>
+                <Label Text="Telefono"/>
+                <Entry Keyboard="Numeric"
+                   Placeholder="Telefono"
+                   x:Name="telefono"/>
 
                 <Label Text="Latitud"/>
                 <Entry Keyboard="Numeric"
