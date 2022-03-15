@@ -76,12 +76,12 @@ namespace GreyExamen.Views
                 fnsEx.ToString();
             }
 
-                listacontactos.ItemsSource = await App.InitDB.ObtenerListaContactos();
+            listacontactos.ItemsSource = await App.InitDB.ObtenerListaContactos();
         }
 
-        private async Task<bool>validarFormulario()
+        private async Task<bool> validarFormulario()
         {
-            if(string.IsNullOrWhiteSpace(nombre.Text))
+            if (string.IsNullOrWhiteSpace(nombre.Text))
             {
                 await this.DisplayAlert("Advertencia", "Debe llenar el campo nombre", "ok");
                 return false;
@@ -121,8 +121,16 @@ namespace GreyExamen.Views
                 };
 
                 await App.InitDB.AddContactos(contactos);
+                if (await App.InitDB.AddContactos(contactos) > 0)
+                {
+                    await DisplayAlert("Aviso", "Contacto agregado", "Ok");
+                }
+                else
+                {
+                    await DisplayAlert("Aviso", "Algo ha salido mal", "Ok");
+                }
 
-            }   
+            }
         }
         private async void btneliminar_Clicked(object sender, EventArgs e)
         {
@@ -136,15 +144,7 @@ namespace GreyExamen.Views
                 Pais = (string)pais.Value,
                 Nota = nota.Text,
             };
-
-
             await App.InitDB.DelContactos(contactos);
         }
-
-
-
-
-
-
     }
 }
