@@ -79,7 +79,52 @@ namespace GreyExamen.Views
                 listacontactos.ItemsSource = await App.InitDB.ObtenerListaContactos();
         }
 
-        private void btnagregar_Clicked(object sender, EventArgs e)
+        private async Task<bool>validarFormulario()
+        {
+            if(string.IsNullOrWhiteSpace(nombre.Text))
+            {
+                await this.DisplayAlert("Advertencia", "Debe llenar el campo nombre", "ok");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(nombre.Text))
+            {
+                await this.DisplayAlert("Advertencia", "Debe llenar el campo telefono", "ok");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(nombre.Text))
+            {
+                await this.DisplayAlert("Advertencia", "Debe llenar el campo edad", "ok");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(nombre.Text))
+            {
+                await this.DisplayAlert("Advertencia", "Debe llenar el campo nota", "ok");
+                return false;
+            }
+            return true;
+        }
+
+        private async void btnagregar_Clicked(object sender, EventArgs e)
+        {
+            if (await validarFormulario())
+            {
+                await DisplayAlert("Listo", "Campos llenos", "Ok");
+                var contactos = new Contactos()
+                {
+                    Nombre = nombre.Text,
+                    Telefono = (int)Convert.ToDouble(telefono.Text),
+                    Longitud = Convert.ToDouble(longitud.Text),
+                    Latitud = Convert.ToDouble(latitud.Text),
+                    Edad = (int)Convert.ToDouble(edad.Text),
+                    Pais = (string)pais.Value,
+                    Nota = nota.Text,
+                };
+
+                await App.InitDB.AddContactos(contactos);
+
+            }   
+        }
+        private async void btneliminar_Clicked(object sender, EventArgs e)
         {
             var contactos = new Contactos()
             {
@@ -92,25 +137,11 @@ namespace GreyExamen.Views
                 Nota = nota.Text,
             };
 
-            App.InitDB.AddContactos(contactos);
+
+            await App.InitDB.DelContactos(contactos);
         }
 
-        private void btneliminar_Clicked(object sender, EventArgs e)
-        {
-            var contactos = new Contactos()
-            {
-                Nombre = nombre.Text,
-                Telefono = (int)Convert.ToDouble(telefono.Text),
-                Longitud = Convert.ToDouble(longitud.Text),
-                Latitud = Convert.ToDouble(latitud.Text),
-                Edad = (int)Convert.ToDouble(edad.Text),
-                Pais = (string)pais.Value,
-                Nota = nota.Text,
-            };
 
-
-            App.InitDB.DelContactos(contactos);
-        }
 
 
 
