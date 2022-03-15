@@ -5,19 +5,19 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Agregar Contacto"
+                      IconImageSource="icon.png"
                      Clicked="ToolbarItem_Clicked"/>
 
         <ToolbarItem Text="Eliminar Contacto"
+                      IconImageSource="del.png"
                      x:Name="ToolDeleContactos"
                      Clicked="ToolDeleContactos_Clicked"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
         
-            <StackLayout Margin="20,20,20,10" BackgroundColor="DarkBlue">
+            <StackLayout Margin="25,25,25,10" BackgroundColor="DarkBlue">
                
-
-
                 <Label Text="Nombre"/>
                 <Entry Keyboard="Text"
                    Placeholder="Nombre"
@@ -89,7 +89,7 @@
 
                             <Label Text="{Binding nombres}"/>
 
-                            <Label Text="{Binding apellidos}"/>
+                            <Label Text="{Binding telefono}"/>
 
 
                         </StackLayout>

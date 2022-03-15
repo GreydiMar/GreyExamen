@@ -90,13 +90,16 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\del.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GreyExamen\GreyExamen.csproj">
       <Project>{6A6144F2-1B6F-4BEB-A3DF-0E9A69D11D5D}</Project>
       <Name>GreyExamen</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
